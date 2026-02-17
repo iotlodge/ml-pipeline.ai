@@ -356,8 +356,8 @@ This pipeline executes LLM-generated Python code in a subprocess sandbox. For pr
 
 | Project | Purpose |
 |---------|---------|
-| **[Commander.ai](https://github.com/iotlodge/Commander.ai)** | AI-powered orchestration and command framework |
-| **[WorldMaker.ai](https://github.com/iotlodge/WorldMaker.ai)** | Synthetic world and data generation |
+| **[Commander.ai](https://github.com/iotlodge/commander.ai)** | AI-powered orchestration and command framework |
+| **[WorldMaker.ai](https://github.com/iotlodge/worldmaker)** | Synthetic world and data generation |
 | **ml-pipeline.ai** | Autonomous machine learning pipeline (this project) |
 
 These projects are designed to compose — each solving a distinct domain while sharing architectural patterns (LangGraph state machines, LLM-driven specialist nodes, real-time observation UIs).
