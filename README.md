@@ -32,7 +32,7 @@
 
 **ml-pipeline.ai** is a fully autonomous machine learning pipeline that takes a raw dataset and objectives in plain English, then executes the entire ML lifecycle — profiling, feature engineering, visualization, model training, evaluation — with an LLM-powered Critic that reviews results and iterates until quality thresholds are met. No notebooks. No manual tuning. Just outcomes.
 
-This is part of a broader **AI Ecosystem** portfolio alongside [Commander.ai](https://github.com/jsbarth/Commander.ai) and [WorldMaker.ai](https://github.com/jsbarth/WorldMaker.ai), building toward a unified platform where autonomous agents collaborate across domains.
+This is part of a broader **AI Ecosystem** portfolio alongside [Commander.ai](https://github.com/iotlodge/Commander.ai) and [WorldMaker.ai](https://github.com/iotlodge/WorldMaker.ai), building toward a unified platform where autonomous agents collaborate across domains.
 
 <p align="center">
   <img src="images/neural-observatory-dashboard.png" alt="Neural Observatory — Full Dashboard" width="800" />
@@ -138,7 +138,7 @@ The left column shows the pipeline graph with node-by-node progress. The right c
 ### Data Profiling
 
 <p align="center">
-  <img src="images/data-profiling.png" alt="Data Profiling Phase" width="700" />
+  <img src="images/data-profiler.png" alt="Data Profiling Phase" width="700" />
 </p>
 
 Automated statistical profiling: shape detection, dtype analysis, missing value assessment, correlation analysis, task type inference (classification vs. regression), and target column identification. Key findings are rendered as formatted markdown from LLM synthesis.
@@ -154,7 +154,7 @@ LLM-generated feature transformations based on data profile insights. New column
 ### Visualization (Seaborn Dark Theme)
 
 <p align="center">
-  <img src="images/visualization.png" alt="Visualization Phase — Seaborn Charts" width="700" />
+  <img src="images/visualizer.png" alt="Visualization Phase — Seaborn Charts" width="700" />
 </p>
 
 Automated EDA visualizations using a custom Seaborn dark theme that matches the Neural Observatory aesthetic. Charts include count plots, histograms with KDE, correlation heatmaps, violin plots, and scatter matrices — all rendered at 150 DPI with a vibrant accent palette. LLM-generated visualization code is sanitized to prevent theme overrides.
@@ -162,7 +162,7 @@ Automated EDA visualizations using a custom Seaborn dark theme that matches the 
 ### Model Training
 
 <p align="center">
-  <img src="images/model-training.png" alt="Model Training Phase — Candidate Comparison" width="700" />
+  <img src="images/model-trainer.png" alt="Model Training Phase — Candidate Comparison" width="700" />
 </p>
 
 Trains 3+ model candidates with cross-validation, compares accuracy/precision/recall/F1, runs Optuna hyperparameter tuning on the best candidate, and produces feature importance rankings. All metrics stream to the UI in real time as candidates are evaluated.
@@ -170,7 +170,7 @@ Trains 3+ model candidates with cross-validation, compares accuracy/precision/re
 ### Evaluation & Critic Review
 
 <p align="center">
-  <img src="images/evaluation.png" alt="Evaluation Phase" width="700" />
+  <img src="images/evaluator.png" alt="Evaluation Phase" width="700" />
 </p>
 
 Cross-validation analysis, overfitting risk assessment, test metrics, and LLM-synthesized evaluation summaries. The Critic reviews all accumulated evidence — data quality, feature effectiveness, model performance, generalization risk — and makes an autonomous decision to finalize or iterate.
@@ -205,7 +205,7 @@ The Critic loop is what makes this autonomous rather than just automated. Tradit
 
 ```bash
 # Clone
-git clone https://github.com/jsbarth/ml-pipeline.ai.git
+git clone https://github.com/iotlodge/ml-pipeline.ai.git
 cd ml-pipeline.ai
 
 # Configure
@@ -356,8 +356,8 @@ This pipeline executes LLM-generated Python code in a subprocess sandbox. For pr
 
 | Project | Purpose |
 |---------|---------|
-| **[Commander.ai](https://github.com/jsbarth/Commander.ai)** | AI-powered orchestration and command framework |
-| **[WorldMaker.ai](https://github.com/jsbarth/WorldMaker.ai)** | Synthetic world and data generation |
+| **[Commander.ai](https://github.com/iotlodge/Commander.ai)** | AI-powered orchestration and command framework |
+| **[WorldMaker.ai](https://github.com/iotlodge/WorldMaker.ai)** | Synthetic world and data generation |
 | **ml-pipeline.ai** | Autonomous machine learning pipeline (this project) |
 
 These projects are designed to compose — each solving a distinct domain while sharing architectural patterns (LangGraph state machines, LLM-driven specialist nodes, real-time observation UIs).
@@ -365,5 +365,5 @@ These projects are designed to compose — each solving a distinct domain while 
 ---
 
 <p align="center">
-  <sub>Built with LangGraph + Claude Sonnet 4.5 + Next.js — by <a href="https://github.com/jsbarth">@jsbarth</a></sub>
+  <sub>Built with LangGraph + Claude Sonnet 4.5 + Next.js — by <a href="https://github.com/iotlodge">@iotlodge</a></sub>
 </p>
