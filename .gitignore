@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env*.local
+npm-debug.log*
+
+# Self-excluding init script
+git-init.sh
+deploy.sh
+*.tar.gz

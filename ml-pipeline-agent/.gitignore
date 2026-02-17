@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+*.egg
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Type checking / linting
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Artifacts (local dev)
+/tmp/ml-pipeline/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Checkpoint database
+checkpoints.db

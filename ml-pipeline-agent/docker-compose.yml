@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=dev
+      - LOG_LEVEL=DEBUG
+      - LLM_PROVIDER=${LLM_PROVIDER:-anthropic}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SANDBOX_TYPE=subprocess
+      - SANDBOX_TIMEOUT_SEC=120
+      - MAX_LOOPS=3
+      - CHECKPOINT_ENABLED=true
+      - CHECKPOINT_BACKEND=sqlite
+      - ARTIFACT_STORAGE=local
+      - LANGSMITH_ENABLED=${LANGSMITH_ENABLED:-false}
+      - LANGSMITH_API_KEY=${LANGSMITH_API_KEY}
+      - LANGSMITH_PROJECT=ml-pipeline-agent-dev
+    volumes:
+      - .:/app
+      - pipeline-artifacts:/tmp/ml-pipeline/artifacts
+      - pipeline-checkpoints:/tmp/ml-pipeline/checkpoints
+      - pipeline-uploads:/tmp/ml-pipeline/uploads
+    networks:
+      - pipeline
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ../ml-pipeline-ui
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - BACKEND_URL=http://app:8000
+    volumes:
+      - ../ml-pipeline-ui:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - pipeline
+    depends_on:
+      - app
+    restart: unless-stopped
+
+volumes:
+  pipeline-artifacts:
+  pipeline-checkpoints:
+  pipeline-uploads:
+
+networks:
+  pipeline:
+    driver: bridge
