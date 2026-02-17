@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/LangGraph-ML-Pipeline.png" alt="LangGraph ML Pipeline — Graph Architecture" width="700" />
+  <img src="images/langgraph.png" alt="LangGraph ML Pipeline — Graph Architecture" width="700" />
 </p>
 
 <h1 align="center">ml-pipeline.ai</h1>
